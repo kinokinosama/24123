@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="color-scheme" content="light" />
+    <title>纸上小厨房：你今天是哪道菜</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div id="app" role="application" aria-label="纸上小厨房：你今天是哪道菜">
+      <div id="frame">
+        <canvas id="stage" aria-hidden="true"></canvas>
+
+        <div id="ui">
+          <section id="screen-home" class="screen">
+            <div class="paper home-paper home-poster">
+              <img
+                class="home-poster-art"
+                src="./images/1036ab4a142e13d378edcd3270102f6f.png"
+                alt="今天你是什么菜的首页海报"
+              />
+              <div class="home-overlay">
+                <div id="home-pot" class="home-pot home-pot-hit" aria-hidden="true"></div>
+                <button id="btn-start" class="btn home-start home-start-hit" type="button" aria-label="开启今日风味"></button>
+              </div>
+              <div id="home-hint" class="home-hint">点击黄色按钮“开启今日风味”开始答题</div>
+            </div>
+          </section>
+
+          <section id="screen-quiz" class="screen hidden">
+            <div class="paper quiz-paper">
+              <div class="quiz-top">
+                <div class="phase-progress" aria-label="答题阶段进度">
+                  <div class="phase-gif-row" aria-hidden="true">
+                    <span class="phase-gif-slot">
+                      <img id="phase-gif-0" class="phase-gif" src="./images/progress_8309_cut.gif" alt="" />
+                    </span>
+                    <span class="phase-gif-slot">
+                      <img id="phase-gif-1" class="phase-gif" src="./images/progress_8316_cut.gif" alt="" />
+                    </span>
+                    <span class="phase-gif-slot">
+                      <img id="phase-gif-2" class="phase-gif" src="./images/progress_8312_cut.gif" alt="" />
+                    </span>
+                  </div>
+                  <div id="phase-track" class="phase-track" aria-hidden="true">
+                    <span id="phase-dot-0" class="phase-dot done"></span>
+                    <span id="phase-dot-1" class="phase-dot"></span>
+                    <span id="phase-dot-2" class="phase-dot"></span>
+                    <span id="phase-dot-3" class="phase-dot"></span>
+                  </div>
+                  <div class="phase-labels" aria-hidden="true">
+                    <span class="phase-label">备菜</span>
+                    <span class="phase-label">下锅</span>
+                    <span class="phase-label">调味</span>
+                    <span class="phase-label">出锅</span>
+                  </div>
+                </div>
+                <div id="progress" class="progress" aria-live="polite"></div>
+              </div>
+              <div class="quiz-body">
+                <div id="question" class="question" aria-live="polite"></div>
+                <div id="options" class="options" role="group" aria-label="选项"></div>
+              </div>
+              <div class="quiz-footer">
+                <button id="btn-prev" class="btn btn-prev-floating" type="button">上一题</button>
+              </div>
+            </div>
+          </section>
+
+          <section id="screen-result" class="screen hidden">
+            <div class="paper result-paper">
+              <img id="result-food" alt="食物插画" />
+              <div class="result-title">
+                <span class="result-title-prefix">你是——</span>
+                <span id="result-name-text" class="result-name" aria-live="polite"></span>
+              </div>
+              <div id="result-sections" class="sections"></div>
+              <button id="btn-restart" class="btn primary" type="button">重新熬一锅</button>
+            </div>
+          </section>
+
+          <div id="error" class="error hidden">哎呀，出错了，请重启试试吧~</div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
